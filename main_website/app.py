@@ -23,7 +23,7 @@ app.config['USER_TOKENS'] = set()
 # Generate the QR code with the user-specific token
 def generate_qr_code(user_token):
     qr = qrcode.make(f"{redirected_website_url}/access/{user_token}")
-    qr.save(f'static/qr_code_{static_token}.png')
+    qr.save(f'main_website/static/qr_code_{static_token}.png')
 
 @app.route('/')
 def main_index():
