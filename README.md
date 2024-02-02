@@ -6,7 +6,6 @@ Sample project for QR-Authentication
 - [Overview](#overview)
 - [Installation](#installation)
 - [Usage](#usage)
-- [#HowItWorks](#How it Works)
 
 
 
@@ -76,14 +75,3 @@ python run.py
 
 - Stop the Program
 To stop the program, press CTRL+C in the terminal where the program is running.
-
-
-## How it Works
-
-1. **Main Website**:
-   - Generates a unique QR code for each user.
-   - Users scan the QR code to obtain access to the redirected website.
-
-2. **Redirected Website**:
-   - Validates the QR code information.
-   - Grants access only to users with a valid QR code, ensuring a secure and controlled environment.
