@@ -8,7 +8,6 @@ Sample project for QR-Authentication
 - [Usage](#usage)
 
 
-
 ## Overview
 
 The project is designed to create a secure access system where a website can only be accessed by scanning a QR code.
@@ -64,6 +63,7 @@ To start the main website and redirected website, use the following command:
 ```bash
 python run.py
  ```
+
 
 - Access the Main Website
 1. Open your web browser and navigate to http://127.0.0.1:5000.
