@@ -8,6 +8,7 @@ Sample project for QR-Authentication
 - [Usage](#usage)
 
 
+
 ## Overview
 
 The project is designed to create a secure access system where a website can only be accessed by scanning a QR code.
