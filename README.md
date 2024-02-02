@@ -74,5 +74,4 @@ python run.py
 1. The redirected website is accessible at http://127.0.0.1:5001.
 2. Users can access this website only by scanning the QR code from the main website.
 
-- Stop the Program
 To stop the program, press CTRL+C in the terminal where the program is running.
