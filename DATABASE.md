@@ -1,7 +1,7 @@
-CREATE TABLE VehicleMaintenance (
+CREATE TABLE EquipmentDiaryEntry (
     id INT PRIMARY KEY AUTO_INCREMENT,
     date DATE NOT NULL,
-    title VARCHAR(255) NOT NULL,
+    operator_name VARCHAR(255) NOT NULL,
     driving_hours FLOAT,
     oil_checked BOOLEAN,
     oil_added_amount FLOAT,
