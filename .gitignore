@@ -1,2 +1,24 @@
-# Ignore virtual environment files
+# Virtual environment
 venv/
+
+# Compiled Python files
+__pycache__/
+
+# Byte-compiled Python files
+*.pyc
+
+# Python local history files
+.pyhistory
+
+# Ignore the environment configuration file
+.env
+
+# Ignore IDE-specific files
+.vscode/
+.idea/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
+
+static/qr_codes/
