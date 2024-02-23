@@ -1,14 +1,16 @@
 from app import db
 
-class Vehicle(db.Model):
-    __tablename__ = 'Vehicle'
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    name = db.Column(db.String(100), nullable=False)
+# class Vehicle(db.Model):
+#     __tablename__ = 'Vehicle'
+#     id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+#     name = db.Column(db.String(100), nullable=False)
 
 
 
 class MaintenanceItem(db.Model):
-    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    __tablename__ = 'VehicleDiaryEntry'
+    entry_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    username = db.Column(db.String(100), nullable=False)
     date = db.Column(db.Date, nullable=False)
     driving_hours = db.Column(db.Float)
     oil_checked = db.Column(db.Boolean)

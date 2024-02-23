@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Results</title>
+</head>
+<body>
+    <h1>Results</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Username</th>
+                <th>Date</th>
+                <th>Driving Hours</th>
+                <th>Oil Checked</th>
+                <th>Oil Added Amount</th>
+                <th>Hydraulic Oil Checked</th>
+                <th>Hydraulic Oil Added Amount</th>
+                <th>Gear Oil Checked</th>
+                <th>Gear Oil Added Amount</th>
+                <th>Liquid Coolant Checked</th>
+                <th>Liquid Coolant Added Amount</th>
+                <th>Fuel Added</th>
+                <th>Greasing Checked</th>
+                <th>Automatic Greaser Checked</th>
+                <th>Automatic Greaser Last Date Filled</th>
+                <th>Action</th> <!-- Column for delete button -->
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in maintenance_items %}
+            <tr>
+                <td>{{ item.username }}</td>
+                <td>{{ item.date }}</td>
+                <td>{{ item.driving_hours }}</td>
+                <td>{{ "Yes" if item.oil_checked else "No" }}</td>
+                <td>{{ item.oil_added_amount }}</td>
+                <td>{{ "Yes" if item.hydraulic_oil_checked else "No" }}</td>
+                <td>{{ item.hydraulic_oil_added_amount }}</td>
+                <td>{{ "Yes" if item.gear_oil_checked else "No" }}</td>
+                <td>{{ item.gear_oil_added_amount }}</td>
+                <td>{{ "Yes" if item.liquid_coolant_checked else "No" }}</td>
+                <td>{{ item.liquid_coolant_added_amount }}</td>
+                <td>{{ item.fuel_added }}</td>
+                <td>{{ "Yes" if item.greasing_checked else "No" }}</td>
+                <td>{{ "Yes" if item.automatic_greaser_checked else "No" }}</td>
+                <td>{{ item.automatic_greaser_last_date_filled }}</td>
+                <td>
+                    <form action="{{ url_for('main.delete_item', item_id=item.entry_id) }}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
+
+
