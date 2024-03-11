@@ -7,7 +7,7 @@ from app import db
 
 
 
-class MaintenanceItem(db.Model):
+class MaintenanceItem(db.Model): # < placeholdername, should be VehicleDiaryEntry
     __tablename__ = 'VehicleDiaryEntry'
     entry_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     username = db.Column(db.String(100), nullable=False)
