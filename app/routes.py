@@ -30,7 +30,7 @@ machines = [
     {"name": "Volvo L30 D-Z -01", "url": "/volvo-l30-d-z-01", "category": "kuormauskoneet"},
     {"name": "JCB Robot -03", "url": "/jcb-robot-03", "category": "kuormauskoneet"},
     {"name": "JCB 421", "url": "/jcb-421", "category": "kuormauskoneet"},
-    {"name": "Lännen 860S -99", "url": "/lannen-860s-99", "category": "Kauvurikuormaajat"},
+    {"name": "Lännen 860S -99", "url": "/lannen-860s-99", "category": "Kaivurikuormaajat"},
     {"name": "Caterpillar D 4 Puskutraktori", "url": "/caterpillar-d-4-puskutraktori", "category": "Muut maarakkenuskoneet"},
     {"name": "New Holland TL 100A Traktori", "url": "/new-holland-tl-100a-traktori", "category": "Muut maarakkenuskoneet"},
     {"name": "John Deere 6534 Traktori", "url": "/john-deere-6534-traktori", "category": "Muut maarakkenuskoneet"},
