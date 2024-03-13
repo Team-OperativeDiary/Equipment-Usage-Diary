@@ -1,0 +1,34 @@
+/* Override Bootstrap button styles */
+.btn-outline-primary {
+    color: #007bff; /* Set text color */
+    border-color: #007bff; /* Set border color */
+}
+
+.btn-outline-primary:hover {
+    color: #0056b3; /* Set text color on hover */
+    background-color: transparent; /* Make background transparent on hover */
+}
+
+/* Optional: Add custom styles for specific elements */
+.category-label {
+    font-size: 20px;
+    font-weight: bold;
+    color: #333; /* Darker color for category labels */
+}
+
+/* Add padding to the container to create some space around the category groups */
+.category-groups {
+    padding: 20px;
+}
+
+/* Adjust spacing between category groups */
+.category-group {
+    margin-bottom: 20px;
+}
+
+.list-box {
+    border: 1px solid #ccc; /* Add border around the list */
+    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
+    padding: 10px; /* Optional: Add padding for spacing */
+    list-style: none; /* Remove default list styles */
+}
