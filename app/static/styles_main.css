@@ -1,34 +1,72 @@
-/* Override Bootstrap button styles */
-.btn-outline-primary {
-    color: #007bff; /* Set text color */
-    border-color: #007bff; /* Set border color */
+/* Apply initial styling to the dropdown button */
+.dropdown-toggle.btn-secondary {
+    background-color: #ffffff; /* Change to your desired color */
+    border-color: #ffffff; /* Change to your desired border color */
+    width: 100%; /* Set a fixed width for all dropdown buttons */
+    text-align: left; /* Align text to the left within the dropdown button */
+    margin-bottom: 2%; /* Add margin bottom to create space between buttons */
+    display: flex; /* Use flexbox */
+    justify-content: space-between; /* Align items with space between them */
+    align-items: center; /* Center items vertically */
+    padding: 2% 4%; /* Add padding */
+    font-size: 18px; /* Fixed font size for desktop */
+    font-weight: bold; /* Make text bold */
+    color: #000000; /* Text color */
+    box-shadow: 0 0 0 2px black; /* Add black outline */
 }
 
-.btn-outline-primary:hover {
-    color: #0056b3; /* Set text color on hover */
-    background-color: transparent; /* Make background transparent on hover */
+/* Style the hover effect of dropdown buttons */
+.dropdown-toggle.btn-secondary:hover {
+    background-color: #0c36ff; /* Change to your desired hover color */
+    border-color: #0c36ff; /* Change to your desired hover color */
+    color: #ffffff; /* Change text color to white on hover */
 }
 
-/* Optional: Add custom styles for specific elements */
-.category-label {
-    font-size: 20px;
-    font-weight: bold;
-    color: #333; /* Darker color for category labels */
+.dropdown-toggle.btn-secondary:focus{
+    box-shadow: 0 0 0 2px black; 
 }
 
-/* Add padding to the container to create some space around the category groups */
-.category-groups {
-    padding: 20px;
+/* Style the text inside the dropdown button */
+.dropdown-toggle.btn-secondary .dropdown-text {
+    flex-grow: 1; /* Let the text grow to take available space */
 }
 
-/* Adjust spacing between category groups */
-.category-group {
-    margin-bottom: 20px;
+/* Style the dropdown arrow */
+.dropdown-toggle.btn-secondary .caret {
+    margin-left: 2%; /* Add margin to separate arrow from text */
 }
 
-.list-box {
-    border: 1px solid #ccc; /* Add border around the list */
-    border-radius: 5px; /* Optional: Add border-radius for rounded corners */
-    padding: 10px; /* Optional: Add padding for spacing */
-    list-style: none; /* Remove default list styles */
+.dropdown {
+    margin-bottom: 1%; /* Add margin bottom to create space between buttons */
+    display: flex; /* Use flexbox */
+    justify-content: center; /* Align items horizontally at the center */
+    align-items: center; /* Center items vertically */
+}
+
+.container {
+    margin-top: 60px; /* Adjust margin to accommodate the header */
+    margin-bottom: 60px; /* Adjust margin to accommodate the footer */
+    max-width: 1200px; /* Set a max-width for the container */
+    position: relative; /* Change position to relative */
+    padding: 20px; /* Add padding */
+    margin-left: auto; /* Automatically center the container horizontally */
+    margin-right: auto; /* Automatically center the container horizontally */
+    
+}
+
+body {
+    color: #ffffff; /* Set default text color to white */
+}
+
+.dropdown-toggle.btn-secondary::after {
+    font-size: 30px; /* Adjust the font size to make the caret bigger */
+}
+
+
+
+
+@media (max-width: 768px) {
+    .container {
+        padding: 0 20px; /* Adjust padding for smaller screens */
+    }
 }

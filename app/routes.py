@@ -40,9 +40,8 @@ machines = [
 
 @main_bp.route('/<category>/<machine_name>')
 def machine_details(category, machine_name):
-    # Your logic to retrieve machine details based on the category and machine_name
-    # For now, let's just return a string with the category and machine name
-    return f"Details for machine: {machine_name} in category: {category}"
+    return f"<h1>Details for machine: {machine_name} in category: {category}</h1>"
+
 
 
 @main_bp.route('/form', methods=['GET', 'POST'])

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Button</title>
+    <style>
+        /* Reset default button styles */
+        button {
+            border: none;
+            outline: none;
+            cursor: pointer;
+            padding: 10px 20px;
+            background-color: #ff8c00;
+            color: #fff;
+            font-size: 18px;
+            border-radius: 5px;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Custom arrow icon styles */
+        .arrow {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: transform 0.3s ease;
+        }
+
+        button:hover .arrow {
+            transform: translate(5px, -50%);
+        }
+    </style>
+</head>
+<body>
+    <button class="custom-button">
+        <span>Hover me</span>
+        <span class="arrow">&#x25B6;</span>
+    </button>
+</body>
+</html>
