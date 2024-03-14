@@ -9,7 +9,7 @@
     justify-content: space-between; /* Align items with space between them */
     align-items: center; /* Center items vertically */
     padding: 2% 4%; /* Add padding */
-    font-size: 18px; /* Fixed font size for desktop */
+    font-size: 5vw; /* Fixed font size for desktop */
     font-weight: bold; /* Make text bold */
     color: #000000; /* Text color */
     box-shadow: 0 0 0 2px black; /* Add black outline */
@@ -59,7 +59,7 @@ body {
 }
 
 .dropdown-toggle.btn-secondary::after {
-    font-size: 30px; /* Adjust the font size to make the caret bigger */
+    font-size: 6vw; /* Adjust the font size to make the caret responsive based on viewport width */
 }
 
 
@@ -68,5 +68,22 @@ body {
 @media (max-width: 768px) {
     .container {
         padding: 0 20px; /* Adjust padding for smaller screens */
+    }
+}
+
+
+/* CSS for setting max font size using Bootstrap classes */
+@media (min-width: 650px) {
+    .dropdown-toggle.btn-secondary {
+        font-size: 3vw; /* Default font size using viewport units */
+        font-size: min(3vw, 20px); /* Set maximum font size for desktop */
+    }
+}
+
+
+@media (min-width: 650px) {
+    .dropdown-toggle.btn-secondary::after {
+        font-size: 6vw; /* Default font size using viewport units */
+        font-size: min(6vw, 30px); /* Set maximum font size for desktop */
     }
 }
