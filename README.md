@@ -38,7 +38,7 @@
    ```
    
 
-7. Move the config file to the app folder
+6. Move the config file to the repository folder
 
 
 
