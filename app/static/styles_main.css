@@ -56,12 +56,44 @@
 
 body {
     color: #ffffff; /* Set default text color to white */
+    font-family: 'Bw Gradual', sans-serif;
 }
 
 .dropdown-toggle.btn-secondary::after {
     font-size: 6vw; /* Adjust the font size to make the caret responsive based on viewport width */
 }
 
+.seuraa-text {
+    margin-right: 5px; /* Adjust margin to create space between text and icons */
+    margin-bottom: 3px;
+    font-weight: bold; /* Make the text bold */
+}
+
+.footer {
+    background-color: #000000; /* Change to your desired color */
+    color: #ffffff; /* Change to your desired text color */
+    padding: 20px; /* Add padding */
+    text-align: center; /* Align text to the center */
+    position: absolute; /* Change position to absolute */
+    bottom: 0; /* Position the footer at the bottom of the page */
+    width: 100%; /* Set the width to 100% */
+    padding: 10px; /* Add padding to maintain spacing around the content */
+    height: 80px; /* Set the desired height */
+    line-height: 20px; /* Adjust line height for better vertical alignment */
+}
+
+
+.social-icons a {
+    display: inline-block;
+    background-color: #ffffff;
+    padding: 8px; /* Adjust padding */
+    border-radius: 50%; /* Set border-radius to 50% */
+    margin: 0 5px; /* Adjust margin */
+}
+.social-icons a i {
+    color: #000000;
+    font-size: 18px; /* Adjust font size */
+}
 
 
 
