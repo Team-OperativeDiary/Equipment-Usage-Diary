@@ -11,8 +11,14 @@
 </head>
 
 <body>
+    <div class="d-flex justify-content-between mt-3">
+        <div></div><!-- Empty div to push the button to the right -->
+        <a href="{{ url_for('main.main_page') }}" class="btn btn-secondary">
+            <span class="mr-2">&larr;</span> Takaisin kone-listaan
+        </a>
+    </div>
     <div class="container">
-        <h1>{{ machine_name }}</h1>
+        <h1>{{ machine_name.replace('-', ' ').upper() }}</h1>
         <form method="post">
             <div class="form-group">
                 <label for="username">Name:</label>
