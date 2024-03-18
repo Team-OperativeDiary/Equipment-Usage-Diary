@@ -41,33 +41,7 @@ machines = [
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
     if request.method == 'POST':
-        # If the request method is POST, redirect to the same route with the provided category and machine_name
-        return redirect(url_for('main.machine_details', category=category, machine_name=machine_name))
-    else:
-        # If the request method is GET, render the 'machine_details.html' template with the provided category and machine_name
-        return render_template('form.html', category=category, machine_name=machine_name)
-
-
-
-#logic to render different forms based on category and machine_name
-
-# @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
-# def machine_details(category, machine_name):
-#     if request.method == 'POST':
-#         return redirect(url_for('main.machine_details', category=category, machine_name=machine_name))
-#     else:
-#         if category == 'Tela-alustaiset':
-#             return render_template('form_tela.html', category=category, machine_name=machine_name)
-#         elif category == 'Pyöräalustaiset':
-#             return render_template('form_pyora.html', category=category, machine_name=machine_name)
-#         # Add more elif statements for other categories
-#         else:
-#             return render_template('form_default.html', category=category, machine_name=machine_name)
-
-
-@main_bp.route('/form', methods=['GET', 'POST'])
-def form():
-    if request.method == 'POST':
+        # If the request method is POST, handle form submission
         # Get form data
         username = request.form['username']
         date = request.form['date']
@@ -81,12 +55,11 @@ def form():
         liquid_coolant_checked = 'liquidCoolantChecked' in request.form
         liquid_coolant_added_amount = request.form['liquidCoolantAddedAmount']
         fuel_added = request.form['fuelAdded']
-        fuel_type = request.form['fuelType']
         greasing_checked = 'greasingChecked' in request.form
         automatic_greaser_checked = 'automaticGreaserChecked' in request.form
         automatic_greaser_last_date_filled = request.form['automaticGreaserLastDateFilled']
-
-
+        
+        # Create a MaintenanceItem object and add it to the database
         maintenance_item = MaintenanceItem( 
             username=username,
             date=date,
@@ -100,18 +73,18 @@ def form():
             liquid_coolant_checked=liquid_coolant_checked,
             liquid_coolant_added_amount=liquid_coolant_added_amount,
             fuel_added=fuel_added,
-            fuel_type=fuel_type,
             greasing_checked=greasing_checked,
             automatic_greaser_checked=automatic_greaser_checked,
             automatic_greaser_last_date_filled=automatic_greaser_last_date_filled
         )
-
         db.session.add(maintenance_item)
         db.session.commit()
+        # If the request method is POST, redirect to the results page
+        return redirect(url_for('main.results'))
+    else:
+        # If the request method is GET, render the 'form.html' template with the provided category and machine_name
+        return render_template('form.html', category=category, machine_name=machine_name)
 
-        return redirect(url_for('main.results'))  
-
-    return render_template('form.html')  
 
 @main_bp.route('/results')
 def results():
