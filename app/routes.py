@@ -38,10 +38,31 @@ machines = [
     {"name": "Scania G142 Tienhoitovarustus", "url": "/scania-g142-tienhoitovarustus", "category": "Autot"},
 ]
 
-@main_bp.route('/<category>/<machine_name>')
+@main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
-    return f"<h1>Details for machine: {machine_name} in category: {category}</h1>"
+    if request.method == 'POST':
+        # If the request method is POST, redirect to the same route with the provided category and machine_name
+        return redirect(url_for('main.machine_details', category=category, machine_name=machine_name))
+    else:
+        # If the request method is GET, render the 'machine_details.html' template with the provided category and machine_name
+        return render_template('form.html', category=category, machine_name=machine_name)
 
+
+
+#logic to render different forms based on category and machine_name
+
+# @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
+# def machine_details(category, machine_name):
+#     if request.method == 'POST':
+#         return redirect(url_for('main.machine_details', category=category, machine_name=machine_name))
+#     else:
+#         if category == 'Tela-alustaiset':
+#             return render_template('form_tela.html', category=category, machine_name=machine_name)
+#         elif category == 'Pyöräalustaiset':
+#             return render_template('form_pyora.html', category=category, machine_name=machine_name)
+#         # Add more elif statements for other categories
+#         else:
+#             return render_template('form_default.html', category=category, machine_name=machine_name)
 
 
 @main_bp.route('/form', methods=['GET', 'POST'])

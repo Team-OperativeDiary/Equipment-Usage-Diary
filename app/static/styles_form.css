@@ -1,0 +1,19 @@
+.form-group label {
+    font-weight: bold;
+}
+
+.form-group input[type="checkbox"] {
+    margin-right: 5px;
+}
+
+.form-group input[type="number"] {
+    width: 100px;
+}
+
+.form-group select {
+    width: 120px;
+}
+
+.form-group .form-check-label {
+    font-weight: normal;
+}
