@@ -60,6 +60,7 @@ def form():
         liquid_coolant_checked = 'liquidCoolantChecked' in request.form
         liquid_coolant_added_amount = request.form['liquidCoolantAddedAmount']
         fuel_added = request.form['fuelAdded']
+        fuel_type = request.form['fuelType']
         greasing_checked = 'greasingChecked' in request.form
         automatic_greaser_checked = 'automaticGreaserChecked' in request.form
         automatic_greaser_last_date_filled = request.form['automaticGreaserLastDateFilled']
@@ -78,6 +79,7 @@ def form():
             liquid_coolant_checked=liquid_coolant_checked,
             liquid_coolant_added_amount=liquid_coolant_added_amount,
             fuel_added=fuel_added,
+            fuel_type=fuel_type,
             greasing_checked=greasing_checked,
             automatic_greaser_checked=automatic_greaser_checked,
             automatic_greaser_last_date_filled=automatic_greaser_last_date_filled
