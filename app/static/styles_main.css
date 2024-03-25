@@ -69,17 +69,19 @@ body {
     font-weight: bold; /* Make the text bold */
 }
 
+
 .footer {
     background-color: #000000; /* Change to your desired color */
     color: #ffffff; /* Change to your desired text color */
     padding: 20px; /* Add padding */
     text-align: center; /* Align text to the center */
-    position: absolute; /* Change position to absolute */
+    position: fixed; /* Change position to absolute */
     bottom: 0; /* Position the footer at the bottom of the page */
     width: 100%; /* Set the width to 100% */
     padding: 10px; /* Add padding to maintain spacing around the content */
     height: 80px; /* Set the desired height */
     line-height: 20px; /* Adjust line height for better vertical alignment */
+    
 }
 
 
