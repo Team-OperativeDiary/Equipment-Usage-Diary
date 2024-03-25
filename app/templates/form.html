@@ -21,70 +21,70 @@
         <h1>{{ machine_name.replace('-', ' ').upper() }}</h1>
         <form method="post">
             <div class="form-group">
-                <label for="username">Name:</label>
+                <label for="username">Nimi:</label>
                 <input type="text" class="form-control" id="username" name="username" required>
             </div>
             <div class="form-group">
-                <label for="date">Date:</label>
+                <label for="date">Päivämäärä:</label>
                 <input type="date" class="form-control" id="date" name="date" required>
             </div>
             <div class="form-group">
-                <label for="drivingHours">Driving Hours:</label>
+                <label for="drivingHours">Ajotunnit:</label>
                 <input type="number" class="form-control" id="drivingHours" name="drivingHours">
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="oilChecked" name="oilChecked">
-                <label class="form-check-label" for="oilChecked">Oil Checked</label>
+                <label class="form-check-label" for="oilChecked">Öljy tarkistettu</label>
             </div>
             <div class="form-group">
-                <label for="oilAddedAmount">Oil Added Amount:</label>
+                <label for="oilAddedAmount">Lisätyn Öljyn määrä:</label>
                 <input type="number" class="form-control" id="oilAddedAmount" name="oilAddedAmount">
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="hydraulicOilChecked" name="hydraulicOilChecked">
-                <label class="form-check-label" for="hydraulicOilChecked">Hydraulic Oil Checked</label>
+                <label class="form-check-label" for="hydraulicOilChecked">Hydrauliikkaöljy tarkistettu</label>
             </div>
             <div class="form-group">
-                <label for="hydraulicOilAddedAmount">Hydraulic Oil Added Amount:</label>
+                <label for="hydraulicOilAddedAmount">Lisätyn Hydrauliikkaöljyn määrä:</label>
                 <input type="number" class="form-control" id="hydraulicOilAddedAmount" name="hydraulicOilAddedAmount">
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="gearOilChecked" name="gearOilChecked">
-                <label class="form-check-label" for="gearOilChecked">Gear Oil Checked</label>
+                <label class="form-check-label" for="gearOilChecked">Vaihteistoöljy tarkistettu</label>
             </div>
             <div class="form-group">
-                <label for="gearOilAddedAmount">Gear Oil Added Amount:</label>
+                <label for="gearOilAddedAmount">Lisätyn Vaihteistoöljyn määrä:</label>
                 <input type="number" class="form-control" id="gearOilAddedAmount" name="gearOilAddedAmount">
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="liquidCoolantChecked" name="liquidCoolantChecked">
-                <label class="form-check-label" for="liquidCoolantChecked">Liquid Coolant Checked</label>
+                <label class="form-check-label" for="liquidCoolantChecked">Jäähdytysneste tarkistettu</label>
             </div>
             <div class="form-group">
-                <label for="liquidCoolantAddedAmount">Liquid Coolant Added Amount:</label>
+                <label for="liquidCoolantAddedAmount">Lisätyn Jäähdytysnesteen määrä:</label>
                 <input type="number" class="form-control" id="liquidCoolantAddedAmount" name="liquidCoolantAddedAmount">
             </div>
             <div class="form-group">
-                <label for="fuelAdded">Fuel Added:</label>
+                <label for="fuelAdded">Lisätyn Polttoaineen määrä:</label>
                 <input type="number" class="form-control" id="fuelAdded" name="fuelAdded">
             </div>
             <div class="form-group">
-                <label for="fuelType">Fuel Type:</label>
+                <label for="fuelType">Polttoaineen tyyppi:</label>
                 <select id="fuelType" class="form-control" name="fuelType">
-                    <option value="Gasoline">Gasoline</option>
+                    <option value="Gasoline">Bensiini</option>
                     <option value="Diesel">Diesel</option>
                 </select>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="greasingChecked" name="greasingChecked">
-                <label class="form-check-label" for="greasingChecked">Greasing Checked</label>
+                <label class="form-check-label" for="greasingChecked">Rasvaus tehty</label>
             </div>
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="automaticGreaserChecked" name="automaticGreaserChecked">
-                <label class="form-check-label" for="automaticGreaserChecked">Automatic Greaser Checked</label>
+                <label class="form-check-label" for="automaticGreaserChecked">Automaatti rasvat tarkistettu</label>
             </div>
             <div class="form-group">
-                <label for="automaticGreaserLastDateFilled">Automatic Greaser Last Date Filled:</label>
+                <label for="automaticGreaserLastDateFilled">Automaatti rasvat viime täyttöpäivä:</label>
                 <input type="date" class="form-control" id="automaticGreaserLastDateFilled" name="automaticGreaserLastDateFilled">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
