@@ -1,12 +1,26 @@
 from flask import Blueprint, render_template, request, redirect, url_for
 from app import db
 from app.models import MaintenanceItem
+from app.models import Vehicle
 
 main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
 def main_page():
     return render_template('main_page.html', machines=machines)
+
+@main_bp.route('/vehicles')
+def vehicles():
+    # Query the Vehicle table
+    vehicles = Vehicle.query.all()
+    
+    # Print attributes of each vehicle to the command line
+    for vehicle in vehicles:
+        print(f"ID: {vehicle.vehicle_id}, Name: {vehicle.name}")
+        # Add more attributes as needed
+        
+    # Pass the vehicles to the template
+    return render_template('main_page.html', vehicles=vehicles)
 
 machines = [
     {"name": "JCB JS 210 LC -11", "url": "/jcb-js-210-lc-11", "category": "Tela-alustaiset"},
@@ -89,7 +103,15 @@ def machine_details(category, machine_name):
 @main_bp.route('/results')
 def results():
     maintenance_items = MaintenanceItem.query.all()
+    
+    # Print attributes of each maintenance item to the command line
+    for item in maintenance_items:
+        print(f"Username: {item.username}, Date: {item.date}, Driving Hours: {item.driving_hours}")
+        # Add more attributes as needed
+        
     return render_template('results.html', maintenance_items=maintenance_items)
+
+
 
 
 @main_bp.route('/delete/<int:item_id>', methods=['POST'])
