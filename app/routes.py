@@ -2,6 +2,8 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from app import db
 from app.models import MaintenanceItem
 from app.models import Vehicle
+from sqlalchemy.orm.exc import NoResultFound
+from flask import flash
 
 main_bp = Blueprint('main', __name__)
 
@@ -9,18 +11,6 @@ main_bp = Blueprint('main', __name__)
 def main_page():
     return render_template('main_page.html', machines=machines)
 
-@main_bp.route('/vehicles')
-def vehicles():
-    # Query the Vehicle table
-    vehicles = Vehicle.query.all()
-    
-    # Print attributes of each vehicle to the command line
-    for vehicle in vehicles:
-        print(f"ID: {vehicle.vehicle_id}, Name: {vehicle.name}")
-        # Add more attributes as needed
-        
-    # Pass the vehicles to the template
-    return render_template('main_page.html', vehicles=vehicles)
 
 machines = [
     {"name": "JCB JS 210 LC -11", "url": "/jcb-js-210-lc-11", "category": "Tela-alustaiset"},
@@ -54,9 +44,20 @@ machines = [
 
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
+    for machine in machines:
+        try:
+            # Query the Vehicle table to find the machine with the given name
+            vehicle = Vehicle.query.filter_by(name=machine['name']).one()
+            # Add the vehicle ID to the machine dictionary
+            machine['vehicle_id'] = vehicle.vehicle_id
+        except NoResultFound:
+            flash(f"No vehicle found with name {machine['name']}", "error")
+            machine['vehicle_id'] = None
+            
     if request.method == 'POST':
         # If the request method is POST, handle form submission
         # Get form data
+        vehicle_id =  vehicle.id
         username = request.form['username']
         date = request.form['date']
         driving_hours = request.form['drivingHours']
@@ -72,9 +73,12 @@ def machine_details(category, machine_name):
         greasing_checked = 'greasingChecked' in request.form
         automatic_greaser_checked = 'automaticGreaserChecked' in request.form
         automatic_greaser_last_date_filled = request.form['automaticGreaserLastDateFilled']
+
+
         
         # Create a MaintenanceItem object and add it to the database
         maintenance_item = MaintenanceItem( 
+            vehicle_id=vehicle_id, 
             username=username,
             date=date,
             driving_hours=driving_hours,
