@@ -44,20 +44,12 @@ machines = [
 
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
-    for machine in machines:
-        try:
-            # Query the Vehicle table to find the machine with the given name
-            vehicle = Vehicle.query.filter_by(name=machine['name']).one()
-            # Add the vehicle ID to the machine dictionary
-            machine['vehicle_id'] = vehicle.vehicle_id
-        except NoResultFound:
-            flash(f"No vehicle found with name {machine['name']}", "error")
-            machine['vehicle_id'] = None
+    vehicle: Vehicle = db.session.query(Vehicle).filter_by(name=find_matching_vehicle_by_url("/" + machine_name)).first()
             
     if request.method == 'POST':
         # If the request method is POST, handle form submission
         # Get form data
-        vehicle_id =  vehicle.id
+        vehicle_id =  vehicle.vehicle_id
         username = request.form['username']
         date = request.form['date']
         driving_hours = request.form['drivingHours']
@@ -127,3 +119,9 @@ def delete_item(item_id):
     db.session.commit()
     
     return redirect(url_for('main.results'))
+
+def find_matching_vehicle_by_url(url):
+    for vehicle in machines:
+        if vehicle['url'] == url:
+            return vehicle['name']
+    return None
