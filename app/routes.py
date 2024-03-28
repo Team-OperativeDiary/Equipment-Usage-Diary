@@ -2,8 +2,7 @@ from flask import Blueprint, render_template, request, redirect, url_for
 from app import db
 from app.models import MaintenanceItem
 from app.models import Vehicle
-from sqlalchemy.orm.exc import NoResultFound
-from flask import flash
+
 
 main_bp = Blueprint('main', __name__)
 
