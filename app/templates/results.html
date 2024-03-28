@@ -10,6 +10,7 @@
     <table border="1">
         <thead>
             <tr>
+                <th>Vehicle ID</th>
                 <th>Username</th>
                 <th>Date</th>
                 <th>Driving Hours</th>
@@ -32,6 +33,7 @@
         <tbody>
             {% for item in maintenance_items %}
             <tr>
+                <td>{{ item.vehicle_id }}</td>
                 <td>{{ item.username }}</td>
                 <td>{{ item.date }}</td>
                 <td>{{ item.driving_hours }}</td>
