@@ -99,11 +99,6 @@ def machine_details(category, machine_name):
 def results():
     maintenance_items = MaintenanceItem.query.all()
     
-    # Print attributes of each maintenance item to the command line
-    for item in maintenance_items:
-        print(f"Username: {item.username}, Date: {item.date}, Driving Hours: {item.driving_hours}")
-        # Add more attributes as needed
-        
     return render_template('results.html', maintenance_items=maintenance_items)
 
 
