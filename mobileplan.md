@@ -1,2 +1,2 @@
 checkboxiin tämmöiset
-![Alt text](pictures/button.png)
+![Alt text](Pictures/button.png)
