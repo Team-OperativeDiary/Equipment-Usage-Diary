@@ -21,15 +21,26 @@
         <h1>{{ machine_name.replace('-', ' ').upper() }}</h1>
 
         <form method="post">
-            <div class="form-group">
+            <div class="col-sm-5">
+                <div class="form-group">
                 <label for="username">Nimi:</label>
                 <input type="text" class="form-control" id="username" name="username" required>
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="date">Päivämäärä:</label>
-                <input type="date" class="form-control" id="date" name="date" required>
+            <div class="row">
+                <div class="col-6">
+                        <label for="date">Päivämäärä:</label>
+                        <input type="date" class="form-control" id="date" name="date" required>
+                </div>
+                <div class="col-6"> 
+                        <label for="drivingHours">Ajotunnit:</label>
+                        <input type="number" class="form-control" id="drivingHours" name="drivingHours">
+                </div>
             </div>
+            
+            
+         
             
             <script>
                 var today = new Date();
@@ -40,10 +51,6 @@
                 document.getElementById("date").value = formattedDate;
             </script>
             
-            <div class="form-group">
-                <label for="drivingHours">Ajotunnit:</label>
-                <input type="number" class="form-control" id="drivingHours" name="drivingHours">
-            </div>
 
             <div class="form-row align-items-center">
                 <div class="col-auto">
