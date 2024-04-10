@@ -102,18 +102,25 @@
                 <input type="number" class="form-control" id="liquidCoolantAddedAmount" name="liquidCoolantAddedAmount">
             </div>
 
-            <div class="form-group">
-                <label for="fuelAdded">Lisätyn Polttoaineen määrä:</label>
-                <input type="number" class="form-control" id="fuelAdded" name="fuelAdded">
+            <div class="row">
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="fuelType">Polttoaineen tyyppi:</label>
+                        <select id="fuelType" class="form-control" name="fuelType">
+                            <option value="Gasoline">Bensiini</option>
+                            <option value="Diesel">Diesel</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="col-6">
+                    <div class="form-group">
+                        <label for="fuelAdded">Lisätty määrä:</label>
+                        <input type="number" class="form-control" id="fuelAdded" name="fuelAdded">
+                    </div>
+                </div>
+       
             </div>
-
-            <div class="form-group">
-                <label for="fuelType">Polttoaineen tyyppi:</label>
-                <select id="fuelType" class="form-control" name="fuelType">
-                    <option value="Gasoline">Bensiini</option>
-                    <option value="Diesel">Diesel</option>
-                </select>
-            </div>
+            
 
             <div class="form-group form-check">
                 <input type="checkbox" class="form-check-input" id="greasingChecked" name="greasingChecked">
