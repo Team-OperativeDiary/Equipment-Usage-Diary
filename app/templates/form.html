@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -18,30 +19,27 @@
     </div>
 
     <div class="container">
-        <h1>{{ machine_name.replace('-', ' ').upper() }}</h1>
+        <h1 class="machine-name">{{ machine_name.replace('-', ' ').upper() }}</h1>
 
         <form method="post">
             <div class="col-sm-5">
                 <div class="form-group">
-                <label for="username">Nimi:</label>
-                <input type="text" class="form-control" id="username" name="username" required>
+                    <label for="username">Nimi:</label>
+                    <input type="text" class="form-control" id="username" name="username" required>
                 </div>
             </div>
 
             <div class="row">
                 <div class="col-6">
-                        <label for="date">Päivämäärä:</label>
-                        <input type="date" class="form-control" id="date" name="date" required>
+                    <label for="date">Päivämäärä:</label>
+                    <input type="date" class="form-control" id="date" name="date" required>
                 </div>
-                <div class="col-6"> 
-                        <label for="drivingHours">Ajotunnit:</label>
-                        <input type="number" class="form-control" id="drivingHours" name="drivingHours">
+                <div class="col-6">
+                    <label for="drivingHours">Ajotunnit:</label>
+                    <input type="number" class="form-control" id="drivingHours" name="drivingHours">
                 </div>
             </div>
-            
-            
-         
-            
+
             <script>
                 var today = new Date();
                 var yyyy = today.getFullYear();
@@ -50,7 +48,6 @@
                 var formattedDate = yyyy + '-' + mm + '-' + dd;
                 document.getElementById("date").value = formattedDate;
             </script>
-            
 
             <div class="form-row align-items-center">
                 <div class="col-auto">
@@ -67,39 +64,55 @@
                     <input type="number" class="form-control" id="oilAddedAmount" name="oilAddedAmount">
                 </div>
             </div>
-            
-            
-            
-            
-            
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="hydraulicOilChecked" name="hydraulicOilChecked">
-                <label class="form-check-label" for="hydraulicOilChecked">Hydrauliikkaöljy tarkistettu</label>
+
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <div class="toggle-container">
+                        <label class="toggle-switch" for="hydraulicOilToggled">
+                            Tark.
+                            <input type="checkbox" id="hydraulicOilToggled" name="hydraulicOilToggled">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <label for="hydraulicOilAddedAmount">Lisätyn Hydrauliikkaöljyn määrä:</label>
+                    <input type="number" class="form-control" id="hydraulicOilAddedAmount"
+                        name="hydraulicOilAddedAmount">
+                </div>
             </div>
 
-            <div class="form-group">
-                <label for="hydraulicOilAddedAmount">Lisätyn Hydrauliikkaöljyn määrä:</label>
-                <input type="number" class="form-control" id="hydraulicOilAddedAmount" name="hydraulicOilAddedAmount">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <div class="toggle-container">
+                        <label class="toggle-switch" for="gearOilToggled">
+                            Tark.
+                            <input type="checkbox" id="gearOilToggled" name="gearOilToggled">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <label for="gearOilAddedAmount">Lisätyn Vaihteistoöljyn määrä:</label>
+                    <input type="number" class="form-control" id="gearOilAddedAmount" name="gearOilAddedAmount">
+                </div>
             </div>
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="gearOilChecked" name="gearOilChecked">
-                <label class="form-check-label" for="gearOilChecked">Vaihteistoöljy tarkistettu</label>
-            </div>
-
-            <div class="form-group">
-                <label for="gearOilAddedAmount">Lisätyn Vaihteistoöljyn määrä:</label>
-                <input type="number" class="form-control" id="gearOilAddedAmount" name="gearOilAddedAmount">
-            </div>
-
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="liquidCoolantChecked" name="liquidCoolantChecked">
-                <label class="form-check-label" for="liquidCoolantChecked">Jäähdytysneste tarkistettu</label>
-            </div>
-
-            <div class="form-group">
-                <label for="liquidCoolantAddedAmount">Lisätyn Jäähdytysnesteen määrä:</label>
-                <input type="number" class="form-control" id="liquidCoolantAddedAmount" name="liquidCoolantAddedAmount">
+            <div class="form-row align-items-center">
+                <div class="col-auto">
+                    <div class="toggle-container">
+                        <label class="toggle-switch" for="liquidCoolantToggled">
+                            Tark.
+                            <input type="checkbox" id="liquidCoolantToggled" name="liquidCoolantToggled">
+                            <span class="toggle-slider"></span>
+                        </label>
+                    </div>
+                </div>
+                <div class="col-auto">
+                    <label for="liquidCoolantAddedAmount">Lisätyn Jäähdytysnesteen määrä:</label>
+                    <input type="number" class="form-control" id="liquidCoolantAddedAmount"
+                        name="liquidCoolantAddedAmount">
+                </div>
             </div>
 
             <div class="row">
@@ -118,23 +131,36 @@
                         <input type="number" class="form-control" id="fuelAdded" name="fuelAdded">
                     </div>
                 </div>
-       
-            </div>
-            
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="greasingChecked" name="greasingChecked">
-                <label class="form-check-label" for="greasingChecked">Rasvaus tehty</label>
             </div>
 
-            <div class="form-group form-check">
-                <input type="checkbox" class="form-check-input" id="automaticGreaserChecked" name="automaticGreaserChecked">
-                <label class="form-check-label" for="automaticGreaserChecked">Automaatti rasvat tarkistettu</label>
+
+            <div class="form-group">
+                <div class="toggle-container">
+                    <label class="toggle-switch" for="greasingChecked">
+                        <input type="checkbox" id="greasingChecked" name="greasingChecked">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-text">Rasvaus tehty</span>
+                </div>
             </div>
 
             <div class="form-group">
+                <div class="toggle-container">
+                    <label class="toggle-switch" for="automaticGreaserChecked">
+                        <input type="checkbox" id="automaticGreaserChecked" name="automaticGreaserChecked">
+                        <span class="toggle-slider"></span>
+                    </label>
+                    <span class="toggle-text">Automaatti rasvat tarkistettu</span>
+                </div>
+            </div>
+            
+            
+
+            <div class="form-group">
                 <label for="automaticGreaserLastDateFilled">Automaatti rasvat viime täyttöpäivä:</label>
-                <input type="date" class="form-control" id="automaticGreaserLastDateFilled" name="automaticGreaserLastDateFilled">
+                <input type="date" class="form-control" id="automaticGreaserLastDateFilled"
+                    name="automaticGreaserLastDateFilled">
             </div>
 
             <button type="submit" class="btn btn-primary">Lähetä</button>
@@ -145,4 +171,5 @@
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
+
 </html>

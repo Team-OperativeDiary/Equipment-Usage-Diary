@@ -22,12 +22,19 @@ body{
     font-weight: normal;
 }
 
+.machine-name {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis; /* Adds an ellipsis (...) if the text overflows */
+    display: flex;
+    flex-shrink: 1; 
+    font-size: 10vw;
+}
+
 .toggle-switch {
     position: relative;
     display: flex;
     flex-direction: column; 
-    align-items: center;
-    text-align: center; 
     cursor: pointer;
 }
 
@@ -62,4 +69,21 @@ body{
 
 .toggle-switch input[type="checkbox"]:checked + .toggle-slider:before {
     transform: translateX(26px);
+}
+
+
+.toggle-container {
+    display: flex;
+    align-items: center;
+}
+.toggle-text {
+    margin-left: 10px;
+    margin-top: -5px;
+}
+
+
+@media screen and (min-width: 768px) {
+    .machine-name {
+        font-size: 50px; /* Adjust the font size for larger screens */
+    }
 }
