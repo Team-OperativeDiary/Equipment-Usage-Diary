@@ -6,6 +6,11 @@ body{
     font-weight: bold;
 }
 
+.container {
+    max-width: 600px;
+    margin: auto;
+}
+
 .form-group input[type="checkbox"] {
     margin-right: 5px;
 }
@@ -21,6 +26,8 @@ body{
 .form-group .form-check-label {
     font-weight: normal;
 }
+
+
 
 .machine-name {
     white-space: nowrap;
@@ -73,6 +80,12 @@ body{
 
 
 .toggle-container {
+    display: flex;
+    align-items: center;
+    margin-top: 15px;
+}
+
+.toggle-containers {
     display: flex;
     align-items: center;
 }
