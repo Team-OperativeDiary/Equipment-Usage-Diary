@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app import db
-from app.models import MaintenanceItem, Vehicle
+from app.models import MaintenanceItem, Vehicles
 from sqlalchemy.orm.exc import NoResultFound
 
 main_bp = Blueprint('main', __name__)
@@ -41,7 +41,7 @@ def main_page():
 
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
-    vehicle: Vehicle = db.session.query(Vehicle).filter_by(name=find_matching_vehicle_by_url("/" + machine_name)).first()
+    vehicle: Vehicles = db.session.query(Vehicles).filter_by(name=find_matching_vehicle_by_url("/" + machine_name)).first()
             
     if request.method == 'POST':
         # If the request method is POST, handle form submission
