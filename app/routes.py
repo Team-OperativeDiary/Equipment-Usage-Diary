@@ -1,7 +1,8 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app import db
-from app.models import MaintenanceItem, Vehicles
+from app.models import MaintenanceItem, Vehicle
 from sqlalchemy.orm.exc import NoResultFound
+
 
 main_bp = Blueprint('main', __name__)
 
@@ -39,14 +40,33 @@ machines = [
 def main_page():
     return render_template('main_page.html', machines=machines)
 
+def extract_name_and_model_from_url(url):
+    # Remove leading and trailing slashes, then split at the first "-" occurrence
+    parts = url.strip("/").split("-", 1)
+    if len(parts) == 2:
+        # Extract the name and model, replacing "-" with space
+        name = parts[0]
+        model = parts[1].replace("-", " ")
+        return name, model
+    else:
+        return None, None
+
+
+    
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
-    vehicle: Vehicles = db.session.query(Vehicles).filter_by(name=find_matching_vehicle_by_url("/" + machine_name)).first()
+    name, model = extract_name_and_model_from_url(machine_name)
+
+    vehicle: Vehicle = db.session.query(Vehicle).filter_by(name=find_matching_vehicle_by_url("/" + machine_name)).first()
+    vehicle = db.session.query(Vehicle).filter_by().first()
+    print(f"Name: {name}, Model: {model}")
+
+   
             
     if request.method == 'POST':
         # If the request method is POST, handle form submission
         # Get form data
-        vehicle_id =  vehicle.vehicle_id
+        vehicle_id = vehicle.id
         username = request.form['username']
         date = request.form['date']
         driving_hours = request.form['drivingHours']
@@ -62,6 +82,7 @@ def machine_details(category, machine_name):
         greasing_checked = 'greasingChecked' in request.form
         automatic_greaser_checked = 'automaticGreaserChecked' in request.form
         automatic_greaser_last_date_filled = request.form['automaticGreaserLastDateFilled'] if 'automaticGreaserLastDateFilled' in request.form else None
+        description = request.form['description'] if 'description' in request.form else None
 
         # Create a MaintenanceItem object and add it to the database
         maintenance_item = MaintenanceItem( 
@@ -80,7 +101,8 @@ def machine_details(category, machine_name):
             fuel_added=fuel_added,
             greasing_checked=greasing_checked,
             automatic_greaser_checked=automatic_greaser_checked,
-            automatic_greaser_last_date_filled=automatic_greaser_last_date_filled
+            automatic_greaser_last_date_filled=automatic_greaser_last_date_filled,
+            description=description
         )
         db.session.add(maintenance_item)
         db.session.commit()
