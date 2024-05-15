@@ -20,7 +20,7 @@
 
     <div class="container">
         <h1 class="machine-name">{{ machine_name.replace('-', ' ').upper() }}</h1>
-
+        
         <form method="post">
             <div class="col-sm-5">
                 <div class="form-group">
@@ -162,6 +162,12 @@
                 <input type="date" class="form-control" id="automaticGreaserLastDateFilled"
                     name="automaticGreaserLastDateFilled">
             </div>
+
+            <div class="form-group">
+                <label for="description">Muuta huomioitavaa:</label>
+                <textarea class="form-control" id="description" name="description" rows="3"></textarea>
+            </div>
+            
 
             <button type="submit" class="btn btn-primary">Lähetä</button>
         </form>
