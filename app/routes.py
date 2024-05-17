@@ -1,10 +1,16 @@
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for
 from app import db
-from app.models import MaintenanceItem, Vehicle
+from app.models import MaintenanceItem
+from app.models import Vehicle
 from sqlalchemy.orm.exc import NoResultFound
-
+from flask import flash
 
 main_bp = Blueprint('main', __name__)
+
+@main_bp.route('/')
+def main_page():
+    return render_template('main_page.html', machines=machines)
+
 
 machines = [
     {"name": "JCB JS 210 LC -11", "url": "/jcb-js-210-lc-11", "category": "Tela-alustaiset"},
@@ -36,54 +42,32 @@ machines = [
     {"name": "Scania G142 Tienhoitovarustus", "url": "/scania-g142-tienhoitovarustus", "category": "Autot"},
 ]
 
-@main_bp.route('/')
-def main_page():
-    return render_template('main_page.html', machines=machines)
-
-def extract_name_and_model_from_url(url):
-    # Remove leading and trailing slashes, then split at the first "-" occurrence
-    parts = url.strip("/").split("-", 1)
-    if len(parts) == 2:
-        # Extract the name and model, replacing "-" with space
-        name = parts[0]
-        model = parts[1].replace("-", " ")
-        return name, model
-    else:
-        return None, None
-
-
-    
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
-    name, model = extract_name_and_model_from_url(machine_name)
-
     vehicle: Vehicle = db.session.query(Vehicle).filter_by(name=find_matching_vehicle_by_url("/" + machine_name)).first()
-    vehicle = db.session.query(Vehicle).filter_by().first()
-    print(f"Name: {name}, Model: {model}")
-
-   
             
     if request.method == 'POST':
         # If the request method is POST, handle form submission
         # Get form data
-        vehicle_id = vehicle.id
+        vehicle_id =  vehicle.vehicle_id
         username = request.form['username']
         date = request.form['date']
         driving_hours = request.form['drivingHours']
         oil_checked = 'oilChecked' in request.form
-        oil_added_amount = request.form['oilAddedAmount'] if 'oilAddedAmount' in request.form else None
+        oil_added_amount = request.form['oilAddedAmount']
         hydraulic_oil_checked = 'hydraulicOilChecked' in request.form
-        hydraulic_oil_added_amount = request.form['hydraulicOilAddedAmount'] if 'hydraulicOilAddedAmount' in request.form else None
+        hydraulic_oil_added_amount = request.form['hydraulicOilAddedAmount']
         gear_oil_checked = 'gearOilChecked' in request.form
-        gear_oil_added_amount = request.form['gearOilAddedAmount'] if 'gearOilAddedAmount' in request.form else None
+        gear_oil_added_amount = request.form['gearOilAddedAmount']
         liquid_coolant_checked = 'liquidCoolantChecked' in request.form
-        liquid_coolant_added_amount = request.form['liquidCoolantAddedAmount'] if 'liquidCoolantAddedAmount' in request.form else None
-        fuel_added = request.form['fuelAdded'] if 'fuelAdded' in request.form else None
+        liquid_coolant_added_amount = request.form['liquidCoolantAddedAmount']
+        fuel_added = request.form['fuelAdded']
         greasing_checked = 'greasingChecked' in request.form
         automatic_greaser_checked = 'automaticGreaserChecked' in request.form
-        automatic_greaser_last_date_filled = request.form['automaticGreaserLastDateFilled'] if 'automaticGreaserLastDateFilled' in request.form else None
-        description = request.form['description'] if 'description' in request.form else None
+        automatic_greaser_last_date_filled = request.form['automaticGreaserLastDateFilled']
 
+
+        
         # Create a MaintenanceItem object and add it to the database
         maintenance_item = MaintenanceItem( 
             vehicle_id=vehicle_id, 
@@ -101,8 +85,7 @@ def machine_details(category, machine_name):
             fuel_added=fuel_added,
             greasing_checked=greasing_checked,
             automatic_greaser_checked=automatic_greaser_checked,
-            automatic_greaser_last_date_filled=automatic_greaser_last_date_filled,
-            description=description
+            automatic_greaser_last_date_filled=automatic_greaser_last_date_filled
         )
         db.session.add(maintenance_item)
         db.session.commit()
@@ -111,6 +94,7 @@ def machine_details(category, machine_name):
     else:
         # If the request method is GET, render the 'form.html' template with the provided category and machine_name
         return render_template('form.html', category=category, machine_name=machine_name)
+
 
 @main_bp.route('/results')
 def results():
@@ -123,8 +107,12 @@ def results():
         
     return render_template('results.html', maintenance_items=maintenance_items)
 
+
+
+
 @main_bp.route('/delete/<int:item_id>', methods=['POST'])
 def delete_item(item_id):
+
     item = MaintenanceItem.query.get_or_404(item_id)
     
     db.session.delete(item)
