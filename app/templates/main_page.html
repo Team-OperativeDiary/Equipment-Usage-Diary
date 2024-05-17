@@ -2,214 +2,116 @@
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Main Page</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
-        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <link rel="stylesheet" type="text/css" href="/static/styles_main.css">
-
-    <link href="https://cdn.jsdelivr.net/npm/remixicon/fonts/remixicon.css" rel="stylesheet">
+        integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+        crossorigin="anonymous">
 </head>
 
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar navbar-expand-lg navbar-light bg-light">
-            <a class="navbar-brand" href="#">
-                <img src="/static/gradialogo.png" class="d-inline-block align-top img-fluid" alt="">
-            </a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Contact</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
 
-    <!-- Main Content -->
+    <!-- Dropdown Menus -->
     <div class="container">
-
+        <!-- Dropdown menu for Category 1 -->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="telaDropdown"
+                <div class="dropdown" id="categoryDropdown1">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton1"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Tela-alustaiset kaivinkoneet
+                        Category 1
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="telaDropdown">
-                        <a class="dropdown-item" href="/tela-alustaiset-kaivinkoneet/jcb-js-210-lc-11">JCB JS 210 LC
-                            -11</a>
-                        <a class="dropdown-item" href="/tela-alustaiset-kaivinkoneet/jcb-js-210-lc-18">JCB JS 210 LC
-                            -18</a>
-                        <a class="dropdown-item" href="/tela-alustaiset-kaivinkoneet/liebherr-r-920-14">Liebherr R 920
-                            -14</a>
-                        <a class="dropdown-item" href="/tela-alustaiset-kaivinkoneet/new-holland-135-sr-08">New Holland
-                            135 SR -08</a>
-                        <a class="dropdown-item" href="/tela-alustaiset-kaivinkoneet/new-holland-135-bsr-2-10">New
-                            Holland 135 BSR-2 -10</a>
+                    <div class="dropdown-menu" aria-labelledby="categoryDropdownButton1">
+                        <!-- Dropdown menu items will be dynamically populated here -->
                     </div>
                 </div>
             </div>
         </div>
 
+<<<<<<< Updated upstream
 
+=======
+        <!-- Dropdown menu for Category 2 -->
+>>>>>>> Stashed changes
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="pyoraDropdown"
+                <div class="dropdown" id="categoryDropdown2">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton2"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Pyöräalustaiset kaivinkoneet
+                        Category 2
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="pyoraDropdown">
-                        <a class="dropdown-item" href="/pyoraalustaiset/caterpillar-m-313-15">Caterpillar M 313 -15</a>
-                        <a class="dropdown-item" href="/pyoraalustaiset/caterpillar-m315-99">Caterpillar M315 -99</a>
-                        <a class="dropdown-item" href="/pyoraalustaiset/jcb-js-160-w-12">JCB JS 160 W -12</a>
-                        <a class="dropdown-item" href="/pyoraalustaiset/wacker-neuson-ew-100-15">Wacker Neuson EW 100
-                            -15</a>
+                    <div class="dropdown-menu" aria-labelledby="categoryDropdownButton2">
+                        <!-- Dropdown menu items will be dynamically populated here -->
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Dropdown menu for Category 3 -->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="miniDropdown"
+                <div class="dropdown" id="categoryDropdown3">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton3"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Mini/midikaivukoneet
+                        Category 3
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="miniDropdown">
-                        <a class="dropdown-item" href="/mini-midikaivukoneet/cat-308e2-17">Cat 308E2 -17</a>
-                        <a class="dropdown-item" href="/mini-midikaivukoneet/ecm-es-85-sb4-18">ECM ES 85 SB4 -18</a>
-                        <a class="dropdown-item" href="/mini-midikaivukoneet/volvo-ec-35-02">Volvo EC 35 -02</a>
-                        <a class="dropdown-item" href="/mini-midikaivukoneet/sunward-80-13">Sunward 80 -13</a>
+                    <div class="dropdown-menu" aria-labelledby="categoryDropdownButton3">
+                        <!-- Dropdown menu items will be dynamically populated here -->
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Dropdown menu for Category 4 -->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="liikennetraktoritDropdown"
+                <div class="dropdown" id="categoryDropdown4">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton4"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Liikennetraktorit
+                        Category 4
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="liikennetraktoritDropdown">
-                        <a class="dropdown-item" href="/liikennetraktorit/volvo-dr-25-a-97">Volvo DR 25 A
-                            -97</a>
-                        <a class="dropdown-item" href="/liikennetraktorit/volvo-dr-5350-84">Volvo DR 5350
-                            -84</a>
+                    <div class="dropdown-menu" aria-labelledby="categoryDropdownButton4">
+                        <!-- Dropdown menu items will be dynamically populated here -->
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Dropdown menu for Category 5 -->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="kuormauskoneetDropdown"
+                <div class="dropdown" id="categoryDropdown5">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton5"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Kuormauskoneet
+                        Category 5
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="kuormauskoneetDropdown">
-                        <a class="dropdown-item" href="/kuormauskoneet/atlast-ar-60-06">Atlast AR 60
-                            -06</a>
-                        <a class="dropdown-item" href="/kuormauskoneet/hyundai-740-hl-tm3-02">Hyundai 740 HL TM3 -02</a>
-                        <a class="dropdown-item" href="/kuormauskoneet/volvo-110-f-08">Volvo 110 F
-                            -08</a>
-                        <a class="dropdown-item" href="/kuormauskoneet/volvo-l30-d-z-01">Volvo L30
-                            D-Z -01</a>
-                        <a class="dropdown-item" href="/kuormauskoneet/jcb-robot-03">JCB Robot
-                            -03</a>
+                    <div class="dropdown-menu" aria-labelledby="categoryDropdownButton5">
+                        <!-- Dropdown menu items will be dynamically populated here -->
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Dropdown menu for Category 6 -->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="kaivurikuormaajatDropdown"
+                <div class="dropdown" id="categoryDropdown6">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton6"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Kaivurikuormaajat
+                        Category 6
                     </button>
-                    <div class="dropdown-menu" aria-labelledby="kaivurikuormaajatDropdown">
-                        <a class="dropdown-item" href="/kaivurikuormaajat/lannen-860s-99">Lännen
-                            860S -99</a>
+                    <div class="dropdown-menu" aria-labelledby="categoryDropdownButton6">
+                        <!-- Dropdown menu items will be dynamically populated here -->
                     </div>
                 </div>
             </div>
         </div>
 
+        <!-- Dropdown menu for Category 7 -->
         <div class="row">
             <div class="col-md-6 col-lg-4">
-                <div class="dropdown">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="muutMaarakennuskoneetDropdown"
+                <div class="dropdown" id="categoryDropdown7">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="categoryDropdownButton7"
                         data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Muut maarakennuskoneet
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="muutMaarakennuskoneetDropdown">
-                        <a class="dropdown-item"
-                            href="/muut-maarakkenuskoneet/caterpillar-d-4-puskutraktori">Caterpillar
-                            D 4 Puskutraktori</a>
-                        <a class="dropdown-item" href="/muut-maarakkenuskoneet/new-holland-tl-100a-traktori">New Holland
-                            TL 100A Traktori</a>
-                        <a class="dropdown-item" href="/muut-maarakkenuskoneet/john-deere-6534-traktori">John Deere 6534
-                            Traktori</a>
-                        <a class="dropdown-item"
-                            href="/muut-maarakkenuskoneet/lannen-ah-162-tiehoyla-runko-ohjaus">Lännen
-                            AH 162 Tiehöylä, runko-ohjaus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <div class="row">
-            <div class="col-md-6 col-lg-4">
-                <div class="dropdown" style="margin-bottom: 50px;">
-                    <button class="btn btn-secondary dropdown-toggle" type="button" id="autotDropdown"
-                        data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        Autot
-                    </button>
-                    <div class="dropdown-menu" aria-labelledby="autotDropdown">
-                        <a class="dropdown-item" href="/autot/scania-g142-tienhoitovarustus">Scania G142
-                            Tienhoitovarustus</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-    </div>
-
-
-    <footer class="footer">
-        
-    </footer>
-    
-    
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script>
-</body>
-
-</html>
+                        Category 
