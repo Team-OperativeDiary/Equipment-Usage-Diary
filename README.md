@@ -54,15 +54,28 @@ If you encounter any issues during installation or usage, feel free to reach out
 
 ## Project Documentation
 
+## Setting Up a Local MySQL Database with MySqlWorkbench
+
+- **download the database query**
+
+- **Create a local database connection**
+
+- **open the query in a local database connection and run the query**
+
+- **download config.py and replace the connection string with your own connection string from the database you created.**
+
+
+## Hosting the app online
 
 1. **Choose a Hosting Provider:**
 
-    - Select a web hosting provider that supports Python and Flask applications.
+    - Select a web hosting provider that supports Python and Flask application alongside mySql
 
 2. **Deploy the Application:**
 
     - Upload the project files to your hosting server.
     - Configure the server to run the Flask application.
+    - Configure the database connection and replace the string in the config.py
 
 ## Issues with External Project Group
 
