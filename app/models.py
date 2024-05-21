@@ -1,15 +1,15 @@
 from app import db
 
 class Vehicle(db.Model):
-    __tablename__ = 'Vehicle'
-    vehicle_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    __tablename__ = 'vehicle'
+    vehicle_id = db.Column(db.Integer, primary_key=True, autoincrement=True)  #pitää vaihtaa databasesta id > vehicle_id
     name = db.Column(db.String(100), nullable=False)
 
 
 class MaintenanceItem(db.Model): # < placeholdername, should be VehicleDiaryEntry
-    __tablename__ = 'VehicleDiaryEntry'
+    __tablename__ = 'vehiclediaryentry'
     entry_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
-    vehicle_id = db.Column(db.Integer, db.ForeignKey('Vehicle.vehicle_id'), nullable=False)
+    vehicle_id = db.Column(db.Integer, db.ForeignKey('vehicle.vehicle_id'), nullable=False)
     username = db.Column(db.String(100), nullable=False)
     date = db.Column(db.Date, nullable=False)
     driving_hours = db.Column(db.Float)
