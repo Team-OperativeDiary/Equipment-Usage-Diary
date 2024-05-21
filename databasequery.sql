@@ -11,9 +11,6 @@ CREATE TABLE Category (
 CREATE TABLE Vehicle (
     vehicle_id INT PRIMARY KEY AUTO_INCREMENT,
     name VARCHAR(255) NOT NULL,
-    id INT AUTO_INCREMENT PRIMARY KEY,
-    name VARCHAR(50) NOT NULL,
-    model VARCHAR(50) NOT NULL,
     year INT NOT NULL,
     category_id INT,
     hasOil BOOLEAN DEFAULT FALSE,
