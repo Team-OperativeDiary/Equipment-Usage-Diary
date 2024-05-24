@@ -9,16 +9,16 @@ main_bp = Blueprint('main', __name__)
 
 @main_bp.route('/')
 def main_page():
-    items = db.session.query(Vehicle.name, Category.name).join(Category, Vehicle.category_id == Category.id).all()
+    items = db.session.query(Vehicle.name, Category.name, Vehicle.model, Vehicle.year).join(Category, Vehicle.category_id == Category.id).all()
     
     categorized_items = {}
     
-    for vehicle_name, category_name in items:
+    for vehicle_name, category_name, vehicle_model, vehicle_year in items:
         if category_name not in categorized_items:
             categorized_items[category_name] = []
         # Generate URL by transforming the vehicle name
         vehicle_url = f"/{category_name.lower().replace(' ', '-')}/{vehicle_name.lower().replace(' ', '-')}"
-        categorized_items[category_name].append({'name': vehicle_name, 'url': vehicle_url})
+        categorized_items[category_name].append({'name': vehicle_name, 'url': vehicle_url, 'model': vehicle_model, 'year': vehicle_year})
     
     return render_template('main_page.html', categorized_items=categorized_items)
 
