@@ -1,6 +1,6 @@
 from flask import Blueprint, render_template, request, redirect, url_for, flash
 from app import db
-from app.models import MaintenanceItem, Vehicle
+from app.models import Category, MaintenanceItem, Vehicle
 from sqlalchemy.orm.exc import NoResultFound
 
 
@@ -38,7 +38,18 @@ machines = [
 
 @main_bp.route('/')
 def main_page():
-    return render_template('main_page.html', machines=machines)
+    items = db.session.query(Vehicle.name, Category.name).join(Category, Vehicle.category_id == Category.id).all()
+    
+    categorized_items = {}
+    
+    for vehicle_name, category_name in items:
+        if category_name not in categorized_items:
+            categorized_items[category_name] = []
+        # Generate URL by transforming the vehicle name
+        vehicle_url = f"/{category_name.lower().replace(' ', '-')}/{vehicle_name.lower().replace(' ', '-')}"
+        categorized_items[category_name].append({'name': vehicle_name, 'url': vehicle_url})
+    
+    return render_template('main_page.html', categorized_items=categorized_items)
 
 def extract_name_and_model_from_url(url):
     # Remove leading and trailing slashes, then split at the first "-" occurrence

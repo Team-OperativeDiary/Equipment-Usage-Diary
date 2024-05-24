@@ -1,14 +1,16 @@
 from app import db
 
 class Category(db.Model):
+    __tablename__ = 'Category'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(100), unique=True, nullable=False)
 
 class Vehicle(db.Model):
     __tablename__ = 'Vehicle'
     id = db.Column(db.Integer, primary_key=True, unique=True)
+    category_id = db.Column(db.Integer, db.ForeignKey('Category.id'), nullable=False)
+    model = db.Column(db.String(100), nullable=False)
     name = db.Column(db.String(50), nullable=False)
-    model = db.Column(db.String(50), nullable=False)
     year = db.Column(db.Integer, nullable=False)
     hasOil = db.Column(db.Boolean, default=False, nullable=True)
     hasHydraulicOil = db.Column(db.Boolean, default=False, nullable=True)
