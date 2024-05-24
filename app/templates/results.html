@@ -51,7 +51,7 @@
                 <td>{{ "Yes" if item.automatic_greaser_checked else "No" }}</td>
                 <td>{{ item.automatic_greaser_last_date_filled }}</td>
                 <td>
-                    <form action="{{ url_for('main.delete_item', item_id=item.entry_id) }}" method="post">
+                    <form action="{{ url_for('main.delete_item', item_id=item.id) }}" method="post">
                         <button type="submit">Delete</button>
                     </form>
                 </td> 

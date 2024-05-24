@@ -22,16 +22,33 @@ def main_page():
     
     return render_template('main_page.html', categorized_items=categorized_items)
 
+def extract_name_and_model_from_url(url):
+    # Remove leading and trailing slashes, then split at the first "-" occurrence
+    parts = url.strip("/").split("-", 1)
+    if len(parts) == 2:
+        # Extract the name and model, replacing "-" with space
+        name = parts[0]
+        model = parts[1].replace("-", " ")
+        return name, model
+    else:
+        return None, None
+
 
     
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
-       
+    name, model = extract_name_and_model_from_url(machine_name)
+
+    vehicle: Vehicle = db.session.query(Vehicle).filter_by(name=machine_name).first()
+    vehicle = db.session.query(Vehicle).filter_by().first()
+    print(f"Name: {name}, Model: {model}")
+
    
             
     if request.method == 'POST':
         # If the request method is POST, handle form submission
         # Get form data
+        vehicle_id = vehicle.id
         username = request.form['username']
         date = request.form['date']
         driving_hours = request.form['drivingHours']

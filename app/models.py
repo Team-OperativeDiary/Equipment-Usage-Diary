@@ -23,7 +23,7 @@ class Vehicle(db.Model):
 
 class MaintenanceItem(db.Model): 
     __tablename__ = 'VehicleDiaryEntry'
-    entry_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     vehicle_id = db.Column(db.String(191), db.ForeignKey('Vehicle.id'), nullable=False)
     username = db.Column(db.String(100), nullable=False)
     date = db.Column(db.Date, nullable=False)
