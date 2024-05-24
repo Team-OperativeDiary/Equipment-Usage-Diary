@@ -40,7 +40,6 @@ def machine_details(category, machine_name):
     name, model = extract_name_and_model_from_url(machine_name)
 
     vehicle: Vehicle = db.session.query(Vehicle).filter_by(name=machine_name).first()
-    vehicle = db.session.query(Vehicle).filter_by().first()
     print(f"Name: {name}, Model: {model}")
 
    
