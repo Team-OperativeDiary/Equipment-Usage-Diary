@@ -22,27 +22,31 @@ def main_page():
     
     return render_template('main_page.html', categorized_items=categorized_items)
 
-def extract_name_and_model_from_url(url):
-    # Remove leading and trailing slashes, then split at the first "-" occurrence
-    parts = url.strip("/").split("-", 1)
+def extract_name_and_year_from_url(url):
+    # Remove leading and trailing slashes, then split at the last "-" occurrence
+    parts = url.strip("/").rsplit("-", 1)
     if len(parts) == 2:
-        # Extract the name and model, replacing "-" with space
-        name = parts[0]
-        model = parts[1].replace("-", " ")
-        return name, model
-    else:
-        return None, None
+        # Extract the name and year
+        name_parts = parts[0].split("-")
+        # Get the first part which represents the name
+        name = name_parts[0].replace("-", " ")  # Replace "-" with space
+        year = parts[1]  # Year is the last part
+        # Check if the year contains only digits
+        if year.isdigit():
+            return name, int(year)  # Convert year to integer
+    return None, None  # Return None for both name and year if extraction fails
+
+
 
 
     
 @main_bp.route('/<category>/<machine_name>', methods=['GET', 'POST'])
 def machine_details(category, machine_name):
-    name, model = extract_name_and_model_from_url(machine_name)
-
-    vehicle: Vehicle = db.session.query(Vehicle).filter_by(name=machine_name).first()
-    print(f"Name: {name}, Model: {model}")
-
-   
+    name, year = extract_name_and_year_from_url(machine_name)
+    print(name, year)
+    if name and year:
+        vehicle: Vehicle = db.session.query(Vehicle).filter(Vehicle.name.ilike(name), Vehicle.year == year).first()
+    
             
     if request.method == 'POST':
         # If the request method is POST, handle form submission
