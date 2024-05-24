@@ -13,6 +13,4 @@ dist/
 build/
 *.egg-info/
 
-config.py
-
-test_db_connection.py
+.env
