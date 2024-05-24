@@ -1,8 +1,12 @@
 from app import db
 
+class Category(db.Model):
+    id = db.Column(db.Integer, primary_key=True)
+    name = db.Column(db.String(100), unique=True, nullable=False)
+
 class Vehicle(db.Model):
     __tablename__ = 'Vehicle'
-    id = db.Column(db.String(191), primary_key=True, unique=True)
+    id = db.Column(db.Integer, primary_key=True, unique=True)
     name = db.Column(db.String(50), nullable=False)
     model = db.Column(db.String(50), nullable=False)
     year = db.Column(db.Integer, nullable=False)
@@ -15,7 +19,7 @@ class Vehicle(db.Model):
 
 
 
-class MaintenanceItem(db.Model): # < placeholdername, should be VehicleDiaryEntry
+class MaintenanceItem(db.Model): 
     __tablename__ = 'VehicleDiaryEntry'
     entry_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
     vehicle_id = db.Column(db.String(191), db.ForeignKey('Vehicle.id'), nullable=False)
@@ -35,7 +39,6 @@ class MaintenanceItem(db.Model): # < placeholdername, should be VehicleDiaryEntr
     greasing_checked = db.Column(db.Boolean)
     automatic_greaser_last_date_filled = db.Column(db.Date)
     description = db.Column(db.String(2000))
-    # id = db.Column(db.String(191), primary_key=True, nullable=False, unique=True)
     automatic_greaser_checked = db.Column(db.Boolean)
 
 
