@@ -51,7 +51,9 @@
                     </button>
                     <div class="dropdown-menu" aria-labelledby="{{ category | replace(' ', '') }}Dropdown">
                         {% for item in items %}
-                        <a class="dropdown-item" href="{{ item['url'] }}">{{ item['name'] }}</a>
+                        <a class="dropdown-item py-1" href="{{ item['url'] }}">
+                            {{ item['name'] }} - {{ item['model'] }} ({{ item['year'] }})
+                        </a>
                         {% endfor %}
                     </div>
                 </div>
