@@ -1,24 +1,18 @@
-# Virtual environment
 venv/
 
-# Compiled Python files
+*.pyc
 __pycache__/
 
-# Byte-compiled Python files
-*.pyc
+instance/
 
-# Python local history files
-.pyhistory
+.pytest_cache/
+.coverage
+htmlcov/
 
-# Ignore the environment configuration file
-.env
+dist/
+build/
+*.egg-info/
 
-# Ignore IDE-specific files
-.vscode/
-.idea/
+config.py
 
-# Ignore system files
-.DS_Store
-Thumbs.db
-
-static/qr_codes/
+test_db_connection.py
