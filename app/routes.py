@@ -17,7 +17,7 @@ def main_page():
         if category_name not in categorized_items:
             categorized_items[category_name] = []
         # Generate URL by transforming the vehicle name
-        vehicle_url = f"/{category_name.lower().replace(' ', '-')}/{vehicle_name.lower().replace(' ', '-')}-{'-'.join(vehicle_model.lower().split())}"
+        vehicle_url = f"/{category_name.lower().replace('/', '-')}/{vehicle_name.lower().replace(' ', '-')}-{'-'.join(vehicle_model.lower().split())}-{'-'.join(str(vehicle_year).split())}"
         categorized_items[category_name].append({'name': vehicle_name, 'url': vehicle_url, 'model': vehicle_model, 'year': vehicle_year})
     
     return render_template('main_page.html', categorized_items=categorized_items)
