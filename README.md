@@ -34,13 +34,6 @@
     pip install -r requirements.txt
     ```
 
-5. **Download the config file from Google Drive:**
-   
-   [Google Drive Link](https://drive.google.com/drive/folders/1xEvN9rDsaC7lrbzmM-zMIhWT4JLEr6ua?usp=sharing&pli=1)
-
-6. **Move the config file to the repository folder.**
-
-## Usage
 
 To start the main website, use the following command:
 
@@ -56,13 +49,13 @@ If you encounter any issues during installation or usage, feel free to reach out
 
 ## Setting Up a Local MySQL Database with MySqlWorkbench
 
-- **download the database query**
+- **Download the database query**
 
 - **Create a local database connection**
 
-- **open the query in a local database connection and run the query**
+- **Open the query in a local database connection and run the query**
 
-- **download config.py and replace the connection string with your own connection string from the database you created.**
+- **Download config.py and replace the connection string with your own connection string from the database you created.**
 
 
 ## Hosting the app online
